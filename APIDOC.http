@@ -1,0 +1,40 @@
+#ADMIN
+
+###
+POST http://127.0.0.1:8000/api/register/admin/
+Content-Type: application/json
+
+{
+    
+    "username": "admin",
+    "email": "admin@gmail.com",
+    "password": "admin",
+    "phone":"123456789"
+
+
+}
+
+#USER
+
+###
+POST http://127.0.0.1:8000/api/register/user/
+Content-Type: application/json
+
+{
+    "username": "sajitha",
+    "email": "sajitha@gmail.com",
+    "password": "python123",
+    "phone":"123456780"
+
+}
+
+###
+POST http://127.0.0.1:8000/api/login/
+Content-Type: application/json
+
+{
+     "username": "sajitha",
+    "password": "python123"
+}
+
+# user1: 5e0ea1393d02669e045b95621144c1bc68b82cf2
