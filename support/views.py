@@ -7,6 +7,7 @@ from support.models import Ticket,TicketComment
 from rest_framework.response import Response
 from rest_framework.request import Request
 from django.db.models import Q
+from support.agent import generate_support_response
 # Create your views here.
 class UserRegister(CreateAPIView):
     serializer_class=UserSeriaizers
@@ -128,3 +129,12 @@ class CommentRetrieveUpdateDelete(RetrieveUpdateDestroyAPIView):
     serializer_class=TicketCommentSerializer
     queryset=TicketComment.objects.all()
 
+class AIResponseView(APIView):
+    authentication_classes = [authentication.TokenAuthentication]
+    permission_classes = [permissions.IsAdminUser]
+    def post(self,request,pk):
+        ticket=get_object_or_404(Ticket,id=pk)
+        response=generate_support_response(ticket)
+
+        return Response({"TICKET":ticket.id,"RESPONSE":response})
+    

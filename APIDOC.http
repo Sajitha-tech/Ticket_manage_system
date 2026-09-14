@@ -46,6 +46,19 @@ GET http://127.0.0.1:8000/api/ticket/
 Accept: application/json
 Authorization: TOKEN 5e0ea1393d02669e045b95621144c1bc68b82cf2
 
+# FILTERING
+
+###
+GET http://127.0.0.1:8000/api/ticket/?priority=HIGH
+Accept: application/json
+Authorization: TOKEN 5e0ea1393d02669e045b95621144c1bc68b82cf2
+
+#SEARCHING 
+###
+GET http://127.0.0.1:8000/api/ticket/?search=payment
+Accept: application/json
+Authorization: TOKEN 5e0ea1393d02669e045b95621144c1bc68b82cf2
+
 ###
 POST http://127.0.0.1:8000/api/ticket/
 Content-Type: application/json
@@ -103,7 +116,11 @@ Authorization: TOKEN e09f668356f0d38f28ddacbd7aa453dd96643e79
 
 
 
-
+#RESPONSE
+###
+POST http://127.0.0.1:8000/api/ticket/1/response/
+Content-Type: application/json
+Authorization: TOKEN e09f668356f0d38f28ddacbd7aa453dd96643e79
 
 
 

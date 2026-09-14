@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from support.views import AdminRegister,UserRegister,LogoutView,TicketCreateListView,TicektRetrieveUpdateDelete,StaffAssignView,TicketCommentCreateList,CommentRetrieveUpdateDelete
+from support.views import AdminRegister,UserRegister,LogoutView,TicketCreateListView,TicektRetrieveUpdateDelete,StaffAssignView,TicketCommentCreateList,CommentRetrieveUpdateDelete,AIResponseView
 from rest_framework.authtoken.views import ObtainAuthToken
 
 urlpatterns = [
@@ -33,6 +33,9 @@ urlpatterns = [
 
     path('api/ticket/<int:id>/comment/',TicketCommentCreateList.as_view()),
     path('api/comment/<int:pk>/',CommentRetrieveUpdateDelete.as_view()),
+
+    path('api/ticket/<int:pk>/response/',AIResponseView.as_view()),
+    
 
 
 
