@@ -33,8 +33,79 @@ POST http://127.0.0.1:8000/api/login/
 Content-Type: application/json
 
 {
-     "username": "sajitha",
-    "password": "python123"
+     "username": "admin",
+    "password": "admin"
 }
 
+#admin:e09f668356f0d38f28ddacbd7aa453dd96643e79
 # user1: 5e0ea1393d02669e045b95621144c1bc68b82cf2
+
+#TICKET
+###
+GET http://127.0.0.1:8000/api/ticket/
+Accept: application/json
+Authorization: TOKEN 5e0ea1393d02669e045b95621144c1bc68b82cf2
+
+###
+POST http://127.0.0.1:8000/api/ticket/
+Content-Type: application/json
+Authorization: TOKEN 5e0ea1393d02669e045b95621144c1bc68b82cf2
+
+{
+    "title": "Payment failed",
+    "description": "My payment was deducted but the order is still showing as unpaid.",
+    "category": "PAYMENT",
+    "priority": "HIGH"
+}
+
+###
+PATCH  http://127.0.0.1:8000/api/ticket/1/
+Content-Type: application/json
+Authorization: TOKEN 5e0ea1393d02669e045b95621144c1bc68b82cf2
+
+{
+
+    "priority": "MEDIUM"
+}
+
+###
+PATCH  http://127.0.0.1:8000/api/tickets/1/update/
+Content-Type: application/json
+Authorization: TOKEN 5e0ea1393d02669e045b95621144c1bc68b82cf2
+
+{
+    "assigned_to": 1,
+    "status": "IN_PROGRESS"
+}
+
+
+#COMMENT
+
+###
+GET http://127.0.0.1:8000/api/ticket/1/comment/
+Accept: application/json
+Authorization: TOKEN 5e0ea1393d02669e045b95621144c1bc68b82cf2
+
+
+###
+POST http://127.0.0.1:8000/api/ticket/1/comment/
+Content-Type: application/json
+Authorization: TOKEN e09f668356f0d38f28ddacbd7aa453dd96643e79
+
+{
+    "message": "We are checking the payment status with our payment provider."
+}
+
+###
+GET http://127.0.0.1:8000/api/comment/1/
+Accept: application/json
+Authorization: TOKEN e09f668356f0d38f28ddacbd7aa453dd96643e79
+
+
+
+
+
+
+
+
+
